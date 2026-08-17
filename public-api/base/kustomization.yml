@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # config
+  - cm.yaml
+  - secret.yaml
+  # networking
+  - svc.yaml
+  - ing.yaml
+  # workload
+  - deploy.yaml
+  # volumes
