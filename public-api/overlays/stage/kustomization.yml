@@ -35,8 +35,8 @@ patches:
 
 - target:
     kind: Deployment
-    name: public-api-replicas
-  path: deploy-strategic-patch.yaml
+    name: public-api
+  path: deploy-patch.yaml
 
 images:
   - name: KUSTOMIZE-DEFINED
