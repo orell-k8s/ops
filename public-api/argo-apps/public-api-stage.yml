@@ -36,3 +36,18 @@ syncPolicy:
 #       enabled: true
 #     syncOptions:
 #       - CreateNamespace=true
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: prod
+# spec:
+#   destination:
+#     namespace: public
+#     server: https://kubernetes.default.svc
+#   source:
+#     path: public-api/overlays/production
+#     repoURL: git@github.com:orell-k8s/ops.git
+#     targetRevision: prod
+#   sources: []
+#   project: default
