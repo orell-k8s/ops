@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: public
+
+# deprecated
+commonLabels:
+  app: public
+  team: devops
+
+# labels:
+# - pairs:
+#     app: public-api
+#     team: devops
+#   includeSelectors: true
+
+commonAnnotations:
+  note: "Este es el ambiente de PROD"
+
+resources:
+- ns.yaml
+- ../../base
+
+
+patches:
+- target:
+    kind: ConfigMap
+    name: cm-private-api
+  path: cm-patch.yaml
+
+- target:
+    kind: Ingress
+    name: public-api
+  path: ing-patch.yaml
+
+# - target:
+#     kind: Deployment
+#     name: public-api
+#   path: deploy-patch.yaml
+
+images:
+  - name: KUSTOMIZE-DEFINED
+    newName: orellx/kubelabs_publicapi
+    newTag: 1.0.1

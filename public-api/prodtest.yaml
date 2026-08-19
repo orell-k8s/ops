@@ -1,0 +1,131 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    note: Este es el ambiente de PROD
+  labels:
+    app: public
+    team: devops
+  name: public
+---
+apiVersion: v1
+data:
+  PRIVATE_API: PROD_ENDPOINT
+kind: ConfigMap
+metadata:
+  annotations:
+    note: Este es el ambiente de PROD
+  labels:
+    app: public
+    team: devops
+  name: cm-private-api
+  namespace: public
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: ewoJImF1dGhzIjogewoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOiB7CgkJCSJhdXRoIjogImIzSmxiR3g0T21SamEzSmZjR0YwWHpGS09YSjBSbE5ZZUU5UmJXcGtVazVqTTNWaGJEaDBZazlOVVE9PSIKCQl9LAoJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92MS9hY2Nlc3MtdG9rZW4iOiB7CgkJCSJhdXRoIjogImIzSmxiR3g0T21WNVNtaGlSMk5wVDJsS1UxVjZTVEZPYVVselNXNVNOV05EU1RaSmEzQllWa05KYzBsdGRIQmFRMGsyU1c1b1dXRXpRa05rUkU1NVZqTk5lVko1TVRGWmFteHpZMFZ3Ym1OVFNqa3VaWGxLYjJSSVVuZGplbTkyVERKb01WbHBOV3RpTWs1eVdsaEpkVmt5T1hSSmFuQTNTVzFXZEZsWGJITkphbTlwWWpOS2JHSkhlSGRsYTBKdVlsZEdjR0pETldwaU1qQnBURU5LZWxwWVRucGhWemwxV0RKc2EwbHFiMmxQUjFsNVRrUk5lRTVFVlhSYVJGa3dUV2t3TUU1dFVUVk1WMGw2V1RKSmRGbDZVWHBQUjA1c1QwZEpkMDlIVVRGSmFYZHBZekk1TVdOdFRteEphbTlwV1ZoV01HRkVRV2xNUTBveFl6SldlV0p0Um5SYVUwazJTVzA1ZVZwWGVITmxRMGx6U1c1V01XRlhVV2xQYVVsM1RrUlZNazVFVlhwTlF6QjNXWHBvYlV4VVVYcFphbXQwVDFSb2FrNVRNV3BOZW1jelRrZEthRnBxYXpOUFYwMXBabE4zYVdGWVRucEphbTlwWVVoU01HTklUVFpNZVRsellqSmtjR0pwTld0aU1rNXlXbGhKZFZreU9YUk1lVWx6U1c1T01WbHBTVFpKYlVZeFpFZG5kMlpFUVRCT1ZGa3dUbFJOZDB4VVFtcFBSMWwwVGtST2FVOVRNRFZQUjAweFRGZE5lazlFWXpCWmJVWnRUMVJqTlZsNVNYTkpiVVl4V2tOSk5sZDVTbTlrU0ZKM1kzcHZka3d5YURGWmFUVnJZakpPY2xwWVNYVlpNamwwU1dsM2FXRklVakJqU0UwMlRIazVhMkl5VG5KYVdFbDBZMGhLZGxwRE5URmplVFZvWkZoU2IwMUROV3BpTWpCMlpGaE9iR050YkhWYWJUaHBXRk4zYVdGWFJqQkphbTk0VG5wbk1rMTZaelJOUkdjelRFTktiR1ZJUVdsUGFrVXpUMFJaZWs5RVp6VlBSR056U1c1T2FtSXpRbXhKYW05cFlqTkNiR0p0Ykd0SlJ6bHRXbTE0Y0dKdFZtWlpWMDVxV2xoT2VrbHBkMmxaV0hCM1NXcHZhVlJFVWpKTlIxSjBZa1UxUTJOR2JGWmhhMlJJV1ZkSmQxRjZTa3RrUjJSVldqRm9lVTFXUmpaT1IxRnBabEV1UmpsZmJEWTFRbVptTVhKdVJHeG5Ta1ozZWxWWlNYQmZRbmxwWmtndE1sa3hibUZYWjB0QlpVeEVjekZaVGtzeFUzbHVVVFpZV25OclFteGpiRWR0V0hOM1JIa3RaVUZpU2pSaFJtSjZSbUkyV1dacVIwczBhbXBDYnkxclN6SkthV1pHTmpJM2RtSjVVbDlmY2pSMU1qRk5PVUZMVURKV2NWUTFNMGd5TFMxWGFHTk9SMHBmTFZKR1dVZEdTVkZPUTA5V2VFOU1UbVZPWW1WeVNqSkhNako1UnpSb05IZ3dVRTVyTWw5aVZFVXRNa05ITm5aVWNrdDNhblJPZEZKeFprMXNOR3BOWkVSdlMxbFJUR3BCYlRCU1dERmhhMFZ5YVdoeU9TMUtkVjg1TFRWTVRuY3pZVWRZWjJ3NWRFaEhMVTVMYm1GdFJEUkVTbmxhZWtOVVkwTXlSMUUxZVhWdmJEaDVTV2R2VlRCb1JWOVNOV1JpVWtWUWVVMHdNVlYzVm14RWIybElla0Z6Y0ZKZmVYcGpRVGxMYTBnME5uaHlZVTVuTWpOdGQzQkNVa1pJVlVScFh6QXlhMWhaV0ZoVldEUkxkMngzIgoJCX0sCgkJImh0dHBzOi8vaW5kZXguZG9ja2VyLmlvL3YxL3JlZnJlc2gtdG9rZW4iOiB7CgkJCSJhdXRoIjogImIzSmxiR3g0T25ZeExrMWpRMlUyVkhkRlNrY3RUV05CZW1oUWF6ZHRlazFETWtOblRqWm5TMk0zUjFoNVJVVXlOMGRHWWt0T2VIcFBORGhyT1U1cVRWVm1PVXhqVXpKalJ6WjVhRTlpYzJjMlMxTjZPWFI1WHpsTlRtMW9NbGQwVFM0dVREUjJNR1J0YkU1Q2NGbFZha2RIWVdJd1F6SktkR2RVWjFoeU1WRjZOR1E9IgoJCX0KCX0KfQ==
+kind: Secret
+metadata:
+  annotations:
+    note: Este es el ambiente de PROD
+  labels:
+    app: public
+    team: devops
+  name: regcred
+  namespace: public
+type: kubernetes.io/dockerconfigjson
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    note: Este es el ambiente de PROD
+  labels:
+    app: public
+    team: devops
+  name: public-api
+  namespace: public
+spec:
+  ports:
+  - name: public-api
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: public
+    team: devops
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    note: Este es el ambiente de PROD
+  labels:
+    app: public
+    team: devops
+  name: public-api
+  namespace: public
+spec:
+  selector:
+    matchLabels:
+      app: public
+      team: devops
+  template:
+    metadata:
+      annotations:
+        note: Este es el ambiente de PROD
+      labels:
+        app: public
+        team: devops
+      name: public-api
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: cm-private-api
+        image: orellx/kubelabs_publicapi:1.0.1
+        imagePullPolicy: Always
+        name: public-api
+        ports:
+        - containerPort: 3000
+          name: public-api
+        resources:
+          limits:
+            cpu: 20m
+            memory: 200Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    note: Este es el ambiente de PROD
+  labels:
+    app: public
+    team: devops
+  name: public-api
+  namespace: public
+spec:
+  rules:
+  - host: api.orell.kubelabs.dev
+    http:
+      paths:
+      - backend:
+          service:
+            name: public-api
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix
+      - backend:
+          service:
+            name: public-api
+            port:
+              number: 3000
+        path: /graphql
+        pathType: Prefix
