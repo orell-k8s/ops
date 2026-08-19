@@ -1,0 +1,38 @@
+project: default
+source:
+  repoURL: git@github.com:orell-k8s/ops.git
+  path: public-api/overlays/stage
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: public-stage
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+    enabled: true
+  syncOptions:
+    - CreateNamespace=true
+
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: stage-public-api
+# spec:
+#   destination:
+#     namespace: public-stage
+#     server: https://kubernetes.default.svc
+#   source:
+#     path: public-api/overlays/stage
+#     repoURL: git@github.com:cachac/ops2.git
+#     targetRevision: HEAD
+#   sources: []
+#   project: default
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#       enabled: true
+#     syncOptions:
+#       - CreateNamespace=true

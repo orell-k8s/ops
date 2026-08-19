@@ -36,4 +36,4 @@ patches:
 images:
   - name: KUSTOMIZE-DEFINED
     newName: orellx/kubelabs_publicapi
-    newTag: 1.0.1
+    newTag: 1.0.2
